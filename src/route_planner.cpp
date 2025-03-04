@@ -55,7 +55,15 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
 // - Remove that node from the open_list.
 // - Return the pointer.
 
-RouteModel::Node *RoutePlanner::NextNode() {}
+RouteModel::Node *RoutePlanner::NextNode() {
+  std::sort(open_list.begin(), open_list.end(),
+            [](const RouteModel::Node *n1, const RouteModel::Node *n2) {
+              return (n1->g_value + n1->h_value) > (n2->g_value + n2->h_value);
+            });
+  RouteModel::Node *next_node = open_list.back();
+  open_list.pop_back();
+  return next_node;
+}
 
 // TODO 6: Complete the ConstructFinalPath method to return the final path found
 // from your A* search. Tips:
