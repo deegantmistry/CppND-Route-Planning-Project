@@ -59,13 +59,13 @@ int main(int argc, const char **argv) {
 
   std::cout
       << "\nEnter any x and y coordinates for starting position between 0 0 "
-         "and 100 100: "
+         "and 100 100 (for example, you can enter 10 10): "
       << "\n";
   std::cin >> start_x >> start_y;
 
   std::cout
       << "\nEnter any x and y coordinates for ending position between 0 0 "
-         "and 100 100: "
+         "and 100 100 (for example, you can enter 90 90): "
       << "\n";
   std::cin >> end_x >> end_y;
 
